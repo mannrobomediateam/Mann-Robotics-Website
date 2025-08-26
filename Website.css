@@ -8,10 +8,23 @@ body, html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   scroll-behavior: smooth; 
   line-height: 1.6;
-  background: #0a0a0a;
+  background:  #0a0a0a; /* your site background */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #ffffff;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
+}
+
+#stippling-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;        /* stays in the back */
+  pointer-events: none; /* so it doesn’t block clicks */
+  opacity: 15%;
 }
 
 body::-webkit-scrollbar {
@@ -318,6 +331,13 @@ section.visible, .fade-section.visible {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.stat-text {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 20px;
+    text-align: center;
+}
+
 
 /* ================= MISSION SECTION ================= */
 .mission-content {
@@ -570,26 +590,51 @@ section.visible, .fade-section.visible {
 /* Buttons */
 .team-btns {
   display: inline-block;
-  padding: 18px 36px;
-  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #1e90ff, #0066cc); /* softer blue */
   color: white;
   text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.4s ease;
+  border-radius: 10px;
+  font-weight: 750;
+  font-size: 1rem;
+  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .team-btns:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #1a7ed6, #005fa3); /* subtle shift */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
+.team-btn-container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically if needed */
+  margin: 10px 0;          /* some breathing space */
+}
 
+.team-btn-vex {
+  border: none;
+  background: none;     /* no background color */
+  padding: 0;           /* no extra space */
+  cursor: pointer;
+  display: inline-block;
+}
+
+.team-btn-vex img {
+  display: block;       /* no weird spacing */
+  width: 300px;         /* size the button */
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-btn-vex:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
 
 /* ================= SKILLS SECTION ================= */
 .skills-content {
