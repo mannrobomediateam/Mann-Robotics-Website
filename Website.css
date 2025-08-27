@@ -539,27 +539,25 @@ section.visible, .fade-section.visible {
   grid-template-columns: 1fr 1fr; /* image left, text right */
   gap: 80px;
   align-items: center;
+  align-items: start;
 }
 
 /* put the image first */
-.teams-visual,
-.highlight-card {
+.teams-visual {
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  overflow: hidden;
   position: relative;
   perspective: 1000px;
   box-shadow: 0 15px 25px rgba(0,0,0,0.3);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.teams-visual img,
-.highlight-card img {
-  width: 100%;
-  height: auto;
+.teams-visual img {
+  width: 150%;
   display: block;
   border-radius: inherit;
+  transform: translateX(-250px);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -574,7 +572,9 @@ section.visible, .fade-section.visible {
   display: flex;
   flex-direction: column;
   align-items: flex-center;
+  text-align: center;
   gap: 15px;
+  transform: translateY(35px) translateX(150px);
 }
 
 .teams-text h3 {
@@ -587,33 +587,14 @@ section.visible, .fade-section.visible {
   top: -5px;  /* raise it a little higher */
 }
 
-/* Buttons */
-.team-btns {
-  display: inline-block;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, #1e90ff, #0066cc); /* softer blue */
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: 750;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.team-btns:hover {
-  background: linear-gradient(135deg, #1a7ed6, #005fa3); /* subtle shift */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
-
 .team-btn-container {
   display: flex;
+  flex-direction: column;
   justify-content: center; /* center horizontally */
   align-items: center;     /* center vertically if needed */
-  margin: 10px 0;          /* some breathing space */
+  margin: 5px 0;
+  gap: -10px;         /* some breathing space */
+  transform: translate(0px, -75px);
 }
 
 .team-btn-vex {
@@ -626,12 +607,56 @@ section.visible, .fade-section.visible {
 
 .team-btn-vex img {
   display: block;       /* no weird spacing */
-  width: 300px;         /* size the button */
+  width: 350px;         /* size the button */
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-btn-vex:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.team-btn-adc {
+  border: none;
+  background: none;     /* no background color */
+  padding: 0;           /* no extra space */
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 30px ;
+  transform: translate(0px, -75px);
+}
+
+.team-btn-adc img {
+  display: block;       /* no weird spacing */
+  width: 300px;         /* size the button */
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-btn-adc:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.team-btn-media {
+  border: none;
+  background: none;     /* no background color */
+  padding: 0;           /* no extra space */
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 35px;
+  transform: translate(0px, -90px);
+}
+
+.team-btn-media img {
+  display: block;       /* no weird spacing */
+  width: 300px;         /* size the button */
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-btn-media:hover img {
   transform: scale(1.05);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 }
