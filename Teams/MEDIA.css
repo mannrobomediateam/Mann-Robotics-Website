@@ -1,0 +1,151 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body, html { 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  scroll-behavior: smooth; 
+  line-height: 1.6;
+  background:  #0a0a0a; /* your site background */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2vw; 
+  background: rgba(10, 10, 10, .35);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  color: #ffffff;
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+  font-weight: 700;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  height: clamp(60px, 10vh, 100px);
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0.75em 6vw;
+    font-size: 1.1rem;
+    height: 60px;
+  }
+}
+
+header.scrolled {
+    background: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo-btn img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+.logo-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-btn img {
+  display: block;
+  width: 55%;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 45px;
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Parent dropdown container */
+.nav-links li {
+  position: relative;
+}
+
+/* Hide dropdown initially */
+.teams-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(15px);
+  border-radius: 8px;
+  padding: 10px 0;
+  list-style: none;
+  min-width: 200px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+/* Show dropdown when parent <li> is hovered */
+.nav-links li:hover > .teams-dropdown {
+  display: block;
+}
