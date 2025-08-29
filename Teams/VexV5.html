@@ -42,7 +42,7 @@
       </video> -->
 
       <!-- Option 2: Image -->
-      <img src="../Assets/Robot.jpg" alt="VEX V5 Teams Banner" class="hero-image">
+      <img src="../Assets/Banner.png" alt="VEX V5 Teams Banner" class="hero-image">
 
       <div class="hero-overlay">
         <h1>Meet Our VEX V5 Teams</h1>
@@ -51,11 +51,11 @@
 
     <!-- TEAMS SECTION -->
     <section class="teams-section">
-        <h2 class="section-title">10 Teams 1 Mann</h2>
+        <h2 class="section-title">2025-2026 Team Roster</h2>
         <div class="teams-container">
 
             <!-- Example Team Card -->
-            <div class="team-card">
+            <div class="team-card" id = "top-card">
             <div class="team-left">
                 <img src="../Assets/VEXV5.png" alt="Team Logo" class="team-logo">
             </div>
@@ -167,7 +167,7 @@
             <div class="team-left">
                 <img src="../Assets/VEXV5.png" alt="Team Logo" class="team-logo">
             </div>
-            <div class="team-right">
+            <div class="team-right" id = "bottom-card">
                 <h3 class="team-name">3796K - Roomba</h3>
                 <p class="team-captain"><strong>Captain:</strong> Jane Doe</p>
                 <p class="team-members"><strong>Members:</strong> John, Sarah, Alex</p>
@@ -178,9 +178,33 @@
     <!-- Copy team-card for more teams -->
 
   </div>
+
+    <!-- Scroll Down Arrow -->
+    <a href="#bottom-card" class="scroll-arrow down">
+    ↓
+    </a>
+
+    <!-- Scroll Up Arrow -->
+    <a href="#top-card" class="scroll-arrow up">
+    ↑
+    </a>
+
 </section>
+
 
 
   </div>
 </body>
+
+<script>
+document.addEventListener("scroll", () => {
+  const upArrow = document.querySelector(".scroll-arrow.up");
+  if (window.scrollY > 200) {
+    upArrow.style.display = "flex";
+  } else {
+    upArrow.style.display = "none";
+  }
+});
+</script>
+
 </html>
