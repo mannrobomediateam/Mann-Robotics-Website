@@ -117,7 +117,7 @@
             <div class = "sheet-wrapper">
               <div class="sheet-container">
                 <iframe 
-                  src="https://docs.google.com/spreadsheets/d/16FEP0sjL_oU64HPZDI8xqkeAq7igwXMh335L3q8fYQ8/edit?headers=false"
+                  src="https://docs.google.com/spreadsheets/d/16FEP0sjL_oU64HPZDI8xqkeAq7igwXMh335L3q8fYQ8/preview?"
                   width="100%"
                   height="600"
                   frameborder="0">
@@ -169,25 +169,6 @@ document.addEventListener("scroll", () => {
   }
 });
 
-const sheetContainer = document.querySelector(".sheet-container");
-const sheetIframe = sheetContainer.querySelector("iframe");
-
-// Start with iframe inert
-sheetIframe.style.pointerEvents = "none";
-
-// Lock scroll on hover
-sheetContainer.addEventListener("mouseenter", () => {
-  document.body.style.overflow = "hidden";  // disable page scroll
-  sheetIframe.style.pointerEvents = "auto"; // allow iframe interaction
-  sheetContainer.classList.add("active");
-});
-
-// Unlock scroll when cursor leaves the sheet
-sheetContainer.addEventListener("mouseleave", () => {
-  document.body.style.overflow = "";        // re-enable page scroll
-  sheetIframe.style.pointerEvents = "none"; // disable iframe interaction
-  sheetContainer.classList.remove("active");
-});
 
 </script>
 
