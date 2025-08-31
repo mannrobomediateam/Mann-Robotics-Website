@@ -6,6 +6,7 @@
   <title>Mann Robotics</title>
   <link rel="stylesheet" href="VexV5.css">
   <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <link rel="icon" href="../Assets/MannTypeSC.png" type="image/png">
 </head>
 <body>
 
@@ -50,8 +51,16 @@
     </section>
 
     <!-- TEAMS SECTION -->
-    <section class="teams-section">
+      <section class="teams-section">
+        
+        <div class ="section-subtitle"> What is Vex V5?
+          <p class = "teams-description"> VEX V5 represents our fifth generation of education robotics systems developed with 20 years of experience using robotics to teach STEM principles. 
+            V5 electronics are approachable, flexible and powerful, using state of the art technology to ensure relevant education outcomes.</p>
+        </div>
+
         <h2 class="section-title">2025-2026 Team Roster</h2>
+
+        
         <div class="teams-container">
 
             <!-- Example Team Card -->
@@ -167,13 +176,26 @@
             <div class="team-left">
                 <img src="../Assets/VEXV5.png" alt="Team Logo" class="team-logo">
             </div>
-            <div class="team-right" id = "bottom-card">
+            <div class="team-right">
                 <h3 class="team-name">3796K - Roomba</h3>
                 <p class="team-captain"><strong>Captain:</strong> Jane Doe</p>
                 <p class="team-members"><strong>Members:</strong> John, Sarah, Alex</p>
                 <p class="team-accomplishments"><strong>Accomplishments:</strong> Regional Finalists, Design Award</p>
             </div>
             </div>
+
+          <h2 class = "section-title" id = "bottom-card"> 2025-2026 VEX V5 Schedule</h2>
+            <div class = "sheet-wrapper">
+              <div class="sheet-container">
+                <iframe 
+                  src="https://docs.google.com/spreadsheets/d/16FEP0sjL_oU64HPZDI8xqkeAq7igwXMh335L3q8fYQ8/edit?headers=false"
+                  width="100%"
+                  height="600"
+                  frameborder="0">
+                </iframe>
+              </div>
+            </div>
+
 
     <!-- Copy team-card for more teams -->
 
@@ -199,12 +221,45 @@
 <script>
 document.addEventListener("scroll", () => {
   const upArrow = document.querySelector(".scroll-arrow.up");
-  if (window.scrollY > 200) {
+
+  // Only show the up arrow if scroll is unlocked
+  if (document.body.style.overflow !== "hidden" && window.scrollY > 200) {
     upArrow.style.display = "flex";
   } else {
     upArrow.style.display = "none";
   }
 });
+
+// Up arrow logic unchanged
+document.addEventListener("scroll", () => {
+  const upArrow = document.querySelector(".scroll-arrow.up");
+  if (document.body.style.overflow !== "hidden" && window.scrollY > 200) {
+    upArrow.style.display = "flex";
+  } else {
+    upArrow.style.display = "none";
+  }
+});
+
+const sheetContainer = document.querySelector(".sheet-container");
+const sheetIframe = sheetContainer.querySelector("iframe");
+
+// Start with iframe inert
+sheetIframe.style.pointerEvents = "none";
+
+// Lock scroll on hover
+sheetContainer.addEventListener("mouseenter", () => {
+  document.body.style.overflow = "hidden";  // disable page scroll
+  sheetIframe.style.pointerEvents = "auto"; // allow iframe interaction
+  sheetContainer.classList.add("active");
+});
+
+// Unlock scroll when cursor leaves the sheet
+sheetContainer.addEventListener("mouseleave", () => {
+  document.body.style.overflow = "";        // re-enable page scroll
+  sheetIframe.style.pointerEvents = "none"; // disable iframe interaction
+  sheetContainer.classList.remove("active");
+});
+
 </script>
 
 </html>
