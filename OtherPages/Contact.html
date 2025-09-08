@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Mann Robotics</title>
+  <link rel="stylesheet" href="Contact.css">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <link rel="icon" href="../Assets/MannTypeSC.png" type="image/png">
+</head>
+<body>
+
+  <div class="main-container">
+
+    <!-- HEADER -->
+    <header id="main-header">
+      <div class="logo">
+        <a href="../index.html" class="logo-btn">
+          <img src="../Assets/MannTypeSC.png" alt="MannType">
+        </a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a href="#">Teams</a>
+            <ul class="teams-dropdown">
+              <li><a href="../Teams/VexV5.html">VEX V5</a></li>
+              <li><a href="../Teams/ADC.html">ADC</a></li>
+              <li><a href="../Teams/MEDIA.html">Media</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-banner">
+      <img src="../Assets/WorldsWalk2.jpg" alt="Contact Banner" class="hero-image">
+      <div class="hero-overlay">
+        <h1>Get in Touch</h1>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+
+        <div class="contact-info">
+          <h2>Contact Us</h2>
+          <p>If you’d like to volunteer or have questions, reach out via email or follow us on social media!</p>
+
+          <h3>Email</h3>
+          <ul class="email-list">
+            <li><a href="mailto:jbennett@greenville.k12.sc.us">jbennett@greenville.k12.sc.us</a></li>
+          </ul>
+
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/mannrobotics/" target="_blank"><img src="../Assets/Instalogo.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@mannrobotics" target="_blank"><img src="../Assets/YTLogo.png" alt="YouTube"></a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h2>Send Us a Message</h2>
+          <form action="mailto:jbennett@greenville.k12.sc.us" method="POST" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+  
+</body>
+</html>

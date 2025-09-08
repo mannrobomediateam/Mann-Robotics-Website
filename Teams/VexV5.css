@@ -219,7 +219,7 @@ main-container {
 
 .hero-overlay h1 {
   font-family: 'Staatliches', sans-serif;
-  font-size: 3rem;
+  font-size: 7rem;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
@@ -282,6 +282,46 @@ main-container {
   border-radius: 12px;
 }
 
+.team-logo-A {
+  width: 120px;             /* make it larger explicitly */
+  height: auto;
+  max-width: none;          /* remove shrinking cap */
+  max-height: none;         /* allow full scale */
+  object-fit: contain;
+  border-radius: 12px;
+  transform: scale(2); 
+}
+
+.team-logo-C {
+  width: 120px;             /* make it larger explicitly */
+  height: auto;
+  max-width: none;          /* remove shrinking cap */
+  max-height: none;         /* allow full scale */
+  object-fit: contain;
+  border-radius: 12px;
+  transform: scale(2.5); 
+}
+
+.team-logo-H {
+  width: 120px;             /* make it larger explicitly */
+  height: auto;
+  max-width: none;          /* remove shrinking cap */
+  max-height: none;         /* allow full scale */
+  object-fit: contain;
+  border-radius: 12px;
+  transform: scale(2); 
+}
+
+.team-logo-D {
+  width: 90px;             /* make it larger explicitly */
+  height: auto;
+  max-width: none;          /* remove shrinking cap */
+  max-height: none;         /* allow full scale */
+  object-fit: contain;
+  border-radius: 12px;
+  transform: scale(2); 
+}
+
 /* Right Content */
 .team-right {
   flex: 1;
@@ -307,7 +347,7 @@ main-container {
 /* SCROLLING */
 
 #top-card {
-  scroll-margin-top: 425px; /* push it up 250px, adjust as needed */
+  scroll-margin-top: 1000px; /* push it up 250px, adjust as needed */
 }
 
 .sheet-container {

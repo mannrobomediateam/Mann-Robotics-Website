@@ -522,21 +522,24 @@ section.visible, .fade-section.visible {
 }
 
 /* right side image */
+/* right side image */
 .card-image {
   flex: 0 0 220px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 16px;       /* round the corners */
+  overflow: hidden;          /* clip anything outside the radius */
+  box-shadow: -10px 12px 24px rgba(0,0,0,0.3);
 }
 
 .card-image img {
-  width: 80%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: -10px 12px 24px rgba(0,0,0,0.3);
-  transform: rotateY(-8deg) rotateX(4deg);
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transform: scale(1.2) translateY(-20px) rotateY(-8deg) rotateX(4deg);
 }
+
 
 /* glass gloss effect */
 .carousel-card::before {
@@ -780,12 +783,10 @@ footer {
 
 .footer-content p {
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 40px;
   font-size: 1.2rem;
   max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
 }
 
 .contact-button {
@@ -806,6 +807,83 @@ footer {
   background: linear-gradient(135deg, #00e6ff, #00b3d9);
   box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
 }
+
+/* ================= SOCIAL ICONS ================= */
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 50px 0 30px 0;
+}
+
+.footer-socials h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-socials .social-icons {
+  display: flex;
+  gap: 35px;
+}
+
+.footer-socials .social-icons a img {
+  width: 55px;
+  height: 55px;
+  transition: transform 0.3s;
+}
+
+.footer-socials .social-icons a img:hover {
+  transform: scale(1.2);
+}
+
+/* ================= LEGAL ================= */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers children horizontally */
+}
+.footer-legal {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-legal p {
+  margin: 5px 0;
+}
+
+.footer-legal a {
+  color: #00d4ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+  color: #0099cc;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  footer {
+    padding: 60px 30px;
+  }
+  .footer-socials .social-icons {
+    gap: 25px;
+  }
+  .footer-socials .social-icons a img {
+    width: 45px;
+    height: 45px;
+  }
+  .contact-button {
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+}
+
+
 
 /* ================= MOBILE-FIRST RESPONSIVE FIXES ================= */
 @media (max-width: 768px) {
