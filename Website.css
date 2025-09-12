@@ -845,6 +845,7 @@ footer {
   font-size: 1.6rem;
   font-weight: 700;
   background: #ffffff;
+   background-clip: text; 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
