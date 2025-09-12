@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mann Robotics</title>
   <link rel="stylesheet" href="Website.css">
-  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="icon" href="../Assets/MannTypeSC.png" type="image/png">
 </head>
 <body>
@@ -43,6 +43,13 @@
       <video class="hero-video" autoplay muted loop playsinline id="hero-video">
         <source src="Assets/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
+        <script>
+          const video = document.getElementById('hero-video');
+          video.addEventListener('loadeddata', () => {
+            video.currentTime = 125;
+            video.play();
+          })
+        </script>
       </video>
       
       <div class="hero-overlay"></div>
@@ -121,7 +128,7 @@
               <div class="card-text">
                 <h2 class="officer-name">Kirsh Verma</h2>
                 <h3 class="officer-role">President</h3>
-                <p class="officer-bio">Passionate about engineering and design. Leads strategy and builds with precision.</p>
+                <p class="officer-bio">Krish Verma, this year’s Club President, has been involved in VEX Robotics for four years. As a member of Team 3796D – Dinoco, he has qualified for the World Championship twice and was a State Finalist.</p>
               </div>
               <div class="card-image">
                 <img src="Assets/LARD.jpg" alt="Officer Portrait">
@@ -149,7 +156,7 @@
               <div class="card-text">
                 <h2 class="officer-name">Megan White</h2>
                 <h3 class="officer-role">Treasurer</h3>
-                <p class="officer-bio">Crafts the visual identity of our projects. Passionate about user experience and aesthetics.</p>
+                <p class="officer-bio">Megan has been a part of Vex Robotics for 5 years and is presently a membeer of 3796K. Having gone to World's twice, she's fallen in love with the robotics community and the support from everyone within it.</p>
               </div>
               <div class="card-image">
                 <img src="Assets/Megan.jpg" alt="Officer Portrait">
@@ -248,7 +255,7 @@
 
         <!-- Legal -->
         <div class="footer-legal">
-          <p>© 2025 Mann Robotics. All rights reserved. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+          <p>© 2025 Mann Robotics. All rights reserved.
         </div>
 
       </div>
