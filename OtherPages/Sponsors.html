@@ -20,20 +20,24 @@
             <img src="../Assets/MannTypeSC.png" alt="MannType">
             </a>
         </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+      
+      <!-- Navigation -->
       <nav>
-       <ul class="nav-links">
-        <li>
-            <a href="#">Teams</a>
+        <ul class="nav-links">
+          <li>
+            <a href="#" class="dropdown-toggle">Teams</a>
             <ul class="teams-dropdown">
               <li><a href="../Teams/VexV5.html">VEX V5</a></li>
-              <li><a href="../Teams/ADC.html" >ADC</a></li>
-              <li><a href="../Teams/MEDIA.html">Media</a></li>
+              <li><a href="../Teams/ADC.html">ADC</a></li>
+              <li><a href="../Teams/MEDIA.html" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Media</a></li>
             </ul>
           </li>
-          <li><a href="../OtherPages/Bylaws.html">Bylaws</a></li>
-          <li><a href="../OtherPages/Volunteer.html">Volunteer</a></li>
-          <li><a href="../OtherPages/Sponsors.html">Sponsors</a></li>
-          <li><a href="../OtherPages/Contact.html">Contact</a></li>
+          <li><a href="Bylaws.html">Bylaws</a></li>
+          <li><a href="Volunteer.html">Volunteer</a></li>
+          <li><a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Sponsors</a></li>
+          <li><a href="Contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -68,6 +72,57 @@
         <h3>Interested in becoming a sponsor?</h3>
         <a href="Contact.html" class="inquire-button">Drop Us A Line!</a>
     </section>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    // Mobile menu toggle
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', function(e) {
+            navLinks.classList.toggle('mobile-open');
+
+            // Reset all dropdowns when opening menu
+            if (navLinks.classList.contains('mobile-open')) {
+                document.querySelectorAll('.nav-links li.dropdown-open').forEach(li => {
+                    li.classList.remove('dropdown-open');
+                });
+            }
+
+            // Change hamburger to X when open
+            mobileToggle.innerHTML = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+        });
+    }
+
+    // Mobile dropdown functionality
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parentLi = this.parentElement;
+            parentLi.classList.toggle('dropdown-open');
+        });
+    });
+
+    // Close mobile menu when clicking on a link (except dropdown toggle)
+    navLinks.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A' && !e.target.classList.contains('dropdown-toggle')) {
+            navLinks.classList.remove('mobile-open');
+            mobileToggle.innerHTML = '☰';
+        }
+    });
+
+    // Close mobile menu when clicking outside the header
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('header')) {
+            navLinks.classList.remove('mobile-open');
+            mobileToggle.innerHTML = '☰';
+        }
+    });
+
+});
+</script>
 
 
 

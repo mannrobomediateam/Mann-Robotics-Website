@@ -5,7 +5,7 @@
 }
 
 body, html {
-  font-family: 'Staatliches', sans-serif, "Bebas Neue", sans-serif;  /* or Inter/Open Sans */
+  font-family: 'Staatliches', sans-serif, "Bebas Neue", sans-serif;
   scroll-behavior: smooth;
   line-height: 1.6;
   background: #0a0a0a;
@@ -50,14 +50,7 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.4s ease;
   height: clamp(60px, 10vh, 100px);
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 0.75em 6vw;
-    font-size: 1.1rem;
-    height: 7px;
-  }
+  transition: background 0.4s ease, border-bottom 0.4s ease;
 }
 
 header.scrolled {
@@ -68,7 +61,7 @@ header.scrolled {
 }
 
 .logo-btn img {
-  max-width: 195px;
+  max-width: 200px;
   height: auto;
   display: block;
 }
@@ -90,12 +83,24 @@ header.scrolled {
   object-fit: contain;
 }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+}
+
 .nav-links {
   display: flex;
   gap: 45px;
   list-style: none;
   font-size: 1rem;
   font-weight: 500;
+  font-family: "Staatliches", sans-serif;
 }
 
 .nav-links a {
@@ -104,7 +109,6 @@ header.scrolled {
   transition: all 0.3s ease;
   position: relative;
   padding: 8px 0;
-
 }
 
 .nav-links a:hover {
@@ -118,7 +122,7 @@ header.scrolled {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #0197F6, #0099cc);
+  background: linear-gradient(90deg, #0197F6, #0197F6);
   transition: width 0.3s ease;
 }
 
@@ -126,12 +130,10 @@ header.scrolled {
   width: 100%;
 }
 
-/* Make parent <li> relative for absolute dropdown positioning */
+/* Parent dropdown container */
 .nav-links li {
   position: relative;
 }
-
-
 
 /* Dropdown menu styling */
 .teams-dropdown {
@@ -202,10 +204,10 @@ header.scrolled {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 150px; /* height of the fade */
+  height: 150px;
   background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, #0a0a0a 100%);
   pointer-events: none;
-  z-index: 5; /* make sure it sits above the video but below text/buttons */
+  z-index: 5;
 }
 
 .hero-video {
@@ -242,15 +244,15 @@ header.scrolled {
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  max-width: 900px;
-  padding: 0 30px;
+  max-width: clamp(300px, 90vw, 900px);
+  padding: 0 clamp(15px, 5vw, 30px);
   z-index: 10;
 }
 
 .hero-title {
-  font-size: clamp(2.8rem, 3vw, 5.5rem);
+  font-size: clamp(1.6rem, 8vw, 3rem);
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: clamp(15px, 3vw, 20px);
   letter-spacing: +0.03em;
   line-height: 1.4;
   background: white;
@@ -263,9 +265,9 @@ header.scrolled {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-size: clamp(1rem, 3vw, 1.6rem);
   font-weight: 400;
-  margin-bottom: 50px;
+  margin-bottom: clamp(30px, 6vw, 50px);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   opacity: 0;
@@ -275,12 +277,12 @@ header.scrolled {
 
 .hero-subtitle strong{
   color: #0197F6;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 4vw, 2rem);
 }
 
 .hero-cta-group {
   display: flex;
-  gap: 20px;
+  gap: clamp(15px, 3vw, 20px);
   justify-content: center;
   flex-wrap: wrap;
   opacity: 0;
@@ -290,13 +292,13 @@ header.scrolled {
 
 .cta-button {
   display: inline-block;
-  padding: 18px 36px;
+  padding: clamp(14px, 3vw, 18px) clamp(28px, 5vw, 36px);
   background: linear-gradient(135deg, #0197F6, #0099cc);
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   transition: all 0.4s ease;
   border: none;
   cursor: pointer;
@@ -332,7 +334,7 @@ header.scrolled {
 
 /* ================= SECTIONS ================= */
 section {
-  padding: 75px 60px;
+  padding: clamp(40px, 8vw, 75px) clamp(20px, 5vw, 60px);
   max-width: 1400px;
   margin: 0 auto;
   opacity: 0;
@@ -347,11 +349,11 @@ section.visible, .fade-section.visible {
 
 .section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: clamp(40px, 8vw, 80px);
 }
 
 .section-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 7vw, 4rem);
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 15px;
@@ -360,7 +362,7 @@ section.visible, .fade-section.visible {
 }
 
 .section-line {
-  width: 250px;
+  width: clamp(150px, 30vw, 250px);
   height: 5px;
   background: #0197F6;
   border-radius: 2px;
@@ -368,7 +370,7 @@ section.visible, .fade-section.visible {
 }
 
 .section-subtitle {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: rgba(255, 255, 255, 0.7);
   max-width: 700px;
   margin: 0 auto;
@@ -379,15 +381,15 @@ section.visible, .fade-section.visible {
 /* ================= TEAM STATS ================= */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 25vw, 220px), 1fr));
+  gap: clamp(20px, 5vw, 40px);
   width: 100%;
 }
 
 .stat-card {
   background: rgba(20, 20, 20, 0.546);
   border: 1px solid rgba(0, 212, 255, 0.2);
-  padding: 50px 20px;
+  padding: clamp(30px, 6vw, 50px) clamp(15px, 3vw, 20px);
   text-align: center;
   border-radius: 15px;
   transition: all 0.3s ease;
@@ -399,22 +401,22 @@ section.visible, .fade-section.visible {
 }
 
 .stat-number {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 800;
   color: #0197F6;
   margin-bottom: 10px;
 }
 
 .stat-label {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: rgb(255, 255, 255, 0.9);
 }
 
 .stat-text {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-family: "Bebas Neue", sans-serif;
     color: rgba(255, 255, 255, 1);
-    margin-top: 45px;
+    margin-top: clamp(25px, 5vw, 45px);
     text-align: center;
 }
 
@@ -422,24 +424,24 @@ section.visible, .fade-section.visible {
 .mission-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: clamp(40px, 8vw, 80px);
   align-items: center;
 }
 
 .mission-text h3 {
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 4vw, 2rem);
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 4vw, 30px);
   line-height: 1.3;
 }
 
 .mission-text p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-family: Roboto;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
-  margin-bottom: 25px;
+  margin-bottom: clamp(15px, 3vw, 25px);
 }
 
 .mission-visual,
@@ -468,7 +470,6 @@ section.visible, .fade-section.visible {
   transform: rotateX(3deg) rotateY(3deg) translateY(-10px);
   box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
-
 
 /* ================= OFFICERS SECTION ================= */
 .carousel-container {
@@ -647,8 +648,9 @@ section.visible, .fade-section.visible {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: clamp(20px, 5vw, 40px);
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .team-btn-vex {
@@ -661,7 +663,7 @@ section.visible, .fade-section.visible {
 
 .team-btn-vex img {
   display: block;
-  width: 350px;
+  width: clamp(250px, 40vw, 350px);
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -681,7 +683,7 @@ section.visible, .fade-section.visible {
 
 .team-btn-adc img {
   display: block;
-  width: 300px;
+  width: clamp(200px, 35vw, 300px);
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -701,7 +703,7 @@ section.visible, .fade-section.visible {
 
 .team-btn-media img {
   display: block;
-  width: 300px;
+  width: clamp(200px, 35vw, 300px);
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -719,7 +721,7 @@ section.visible, .fade-section.visible {
 .skills-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: clamp(40px, 8vw, 80px);
   align-items: center;
 }
 
@@ -731,7 +733,7 @@ section.visible, .fade-section.visible {
   perspective: 1000px;
   box-shadow: 0 15px 25px rgba(0,0,0,0.3);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  height: 450px;
+  height: clamp(300px, 40vw, 450px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -755,10 +757,10 @@ section.visible, .fade-section.visible {
 }
 
 .skills-text h3 {
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 4vw, 2rem);
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: clamp(25px, 5vw, 40px);
 }
 
 .skills-list {
@@ -766,12 +768,12 @@ section.visible, .fade-section.visible {
 }
 
 .skills-list li {
-  padding: 20px 0;
+  padding: clamp(15px, 3vw, 20px) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: rgba(255, 255, 255, 0.9);
   position: relative;
-  padding-left: 40px;
+  padding-left: clamp(30px, 5vw, 40px);
   transition: all 0.3s ease;
 }
 
@@ -780,13 +782,13 @@ section.visible, .fade-section.visible {
   color: #0197F6;
   position: absolute;
   left: 0;
-  top: 20px;
+  top: clamp(15px, 3vw, 20px);
   font-size: 0.8rem;
 }
 
 .skills-list li:hover {
   color: #ffffff;
-  padding-left: 50px;
+  padding-left: clamp(35px, 6vw, 50px);
 }
 
 .skills-list li:hover::before {
@@ -799,12 +801,12 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   text-align: center;
-  padding: 100px 60px;
+  padding: clamp(50px, 8vw, 100px) clamp(20px, 5vw, 60px);
   margin-top: 40px;
 }
 
 .footer-content h3 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   margin-bottom: 25px;
   font-weight: 700;
   background: #ffffff;
@@ -815,7 +817,7 @@ footer {
 
 .footer-content p {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   max-width: 500px;
   margin: 0 auto 40px auto;
   line-height: 1.6;
@@ -824,13 +826,13 @@ footer {
 
 .contact-button {
   display: inline-block;
-  padding: 16px 40px;
+  padding: clamp(12px, 3vw, 16px) clamp(30px, 6vw, 40px);
   background: linear-gradient(135deg, #0197F6, #0099cc);
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   transition: all 0.4s ease;
   box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
 }
@@ -851,7 +853,7 @@ footer {
 }
 
 .footer-socials h4 {
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
   font-weight: 700;
   background: #ffffff;
    background-clip: text; 
@@ -861,12 +863,12 @@ footer {
 
 .footer-socials .social-icons {
   display: flex;
-  gap: 35px;
+  gap: clamp(20px, 4vw, 35px);
 }
 
 .footer-socials .social-icons a img {
-  width: 55px;
-  height: 55px;
+  width: clamp(40px, 6vw, 55px);
+  height: clamp(40px, 6vw, 55px);
   transition: transform 0.3s;
 }
 
@@ -878,7 +880,7 @@ footer {
 footer {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centers children horizontally */
+  align-items: center;
 }
 .footer-legal {
   margin-top: 20px;
@@ -887,6 +889,7 @@ footer {
 
 .footer-legal p {
   margin: 5px 0;
+  font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 .footer-legal a {
@@ -899,354 +902,191 @@ footer {
   color: #0099cc;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  footer {
-    padding: 60px 30px;
-  }
-  .footer-socials .social-icons {
-    gap: 25px;
-  }
-  .footer-socials .social-icons a img {
-    width: 45px;
-    height: 45px;
-  }
-  .contact-button {
-    padding: 14px 32px;
-    font-size: 1rem;
-  }
-}
-
-
-
-/* ================= MOBILE-FIRST RESPONSIVE FIXES ================= */
-@media (max-width: 768px) {
-  .main-container {
-    overflow-x: hidden;
-  }
-
+/* ================= MOBILE SPECIFIC OVERRIDES ================= */
+@media (max-width: 768px){
+  /* Header adjustments */
   header {
-    padding: 10px 20px;
-    flex-direction: row; /* Keep horizontal on mobile */
-    justify-content: space-between;
-    align-items: center;
-    height: 70px; /* Fixed height */
-    min-height: 70px;
+    font-size: 1rem;
+    height: 60px;
+    padding: 0.75em 4vw;
   }
-  
+
   .logo-btn img {
-    width: 60%;
-    max-width: 150px;
+    width: 55%;
+    max-width: 140px;
+    margin-left: -1vh;
   }
 
+  /* Mobile menu toggle button */
+  .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 1vh;
+    z-index: 1001; /* above nav */
+  }
+
+  /* Nav links container */
   .nav-links {
-    gap: 15px;
-    font-size: 0.8rem;
-    flex-wrap: nowrap; /* Don't wrap */
-    justify-content: flex-end;
-  }
-
-  /* Hero Section Mobile */
-  .hero-content {
-    padding: 0 20px;
-  }
-
-  .hero-title {
-    font-size: clamp(2rem, 8vw, 3.5rem);
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1rem, 4vw, 1.3rem);
-  }
-
-  .hero-cta-group {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw; /* lock width to viewport */
+    height: calc(100vh - 60px);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    justify-content: flex-start;
+    padding-top: 40px;
+    gap: 0;
+
+    transform: translateX(-100%); /* hidden by default */
+    opacity: 0;
+    transition: none; /* disable animation on resize/load */
+    z-index: 999;
   }
 
-  .cta-button {
-    padding: 15px 30px;
-    font-size: 1rem;
-    width: 80%;
-    max-width: 280px;
+  /* Animate only when opening */
+  .nav-links.mobile-open {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Nav items */
+  .nav-links li {
+    width: 100%;
     text-align: center;
+    margin-bottom: 20px;
   }
 
-  /* Sections Mobile */
-  section {
-    padding: 60px 20px;
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 15px 0;
+    display: block;
+    width: 100%;
+    text-decoration: none !important;
+    color: #fff;
+    position: relative;
+    transform: translateX(-10vh);
   }
 
-  .section-title {
-    font-size: clamp(2rem, 6vw, 3rem);
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, #ffffff, #ffffff);
+    transition: width 0.3s ease;
   }
 
-  .section-subtitle {
-    font-size: 1.1rem;
-    padding: 0 10px;
-  }
-
-  /* Stats Grid Mobile */
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .stat-card {
-    padding: 30px 15px;
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
-  }
-
-  .stat-label {
-    font-size: 1rem;
-  }
-
-  .stat-text {
-    font-size: 1.4rem;
-    margin-top: 15px;
-  }
-
-  /* Mission, Skills Content Mobile */
-  .mission-content,
-  .skills-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .mission-text h3,
-  .skills-text h3 {
-    font-size: 1.8rem;
-    text-align: center;
-  }
-
-  .mission-text p {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  /* Officers Carousel Mobile */
-  .carousel-container {
-    height: 280px; /* Much smaller */
-    max-width: 100%;
-    padding: 0 15px;
-    margin: 20px auto;
-  }
-
-  .carousel-card {
-    width: 90%; /* Smaller width */
-    max-width: 320px; /* Much smaller max width */
-    height: 220px; /* Much smaller height */
-    margin: -110px 0 0 -45%; /* Adjusted centering */
-  }
-
-  .carousel-card.center {
-    transform: translateX(0) scale(0.95); /* Smaller scale */
-  }
-
-  .carousel-card.left {
-    transform: translateX(-100%) scale(0.75); /* Much smaller side cards */
-    opacity: 0.3;
-  }
-
-  .carousel-card.right {
-    transform: translateX(100%) scale(0.75); /* Much smaller side cards */
-    opacity: 0.3;
-  }
-
-  .card-content {
-    flex-direction: row; /* Keep horizontal layout */
-    padding: 15px;
+  /* Mobile dropdown */
+  .teams-dropdown {
+    position: static;
+    max-height: 0;
+    overflow: hidden;
+    transition: none; /* disable by default */
+    margin: 0;
+    padding: 0;
+    background: #00000047;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     gap: 10px;
   }
 
-  .card-image {
-    flex: 0 0 80px; /* Smaller image area */
-    order: 2; /* Put image on right */
+  /* Animate only when dropdown opens */
+  .nav-links li.dropdown-open > .teams-dropdown {
+    max-height: 400px;
+    transition: max-height 0.3s ease;
   }
 
-  .card-image img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    transform: none;
-  }
-
-  .card-text {
-    flex: 1;
-    order: 1; /* Text on left */
-  }
-
-  .officer-name {
+  .teams-dropdown a {
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    color: #fff;
     font-size: 1.2rem;
-    text-align: left;
-    margin-bottom: 4px;
+    text-decoration: none !important;
+    transition: background 0.2s ease, color 0.2s ease;
   }
 
-  .officer-role {
-    font-size: 1rem;
-    text-align: left;
-    margin-bottom: 6px;
+  .teams-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #00d4ff;
   }
 
-  .officer-bio {
-    font-size: 0.8rem;
-    text-align: left;
-    line-height: 1.3;
+  /* Hero Banner - Fix the overlay issues */
+  .hero-banner {
+    min-height: 40vh;
+    max-height: 60vh;
   }
 
-  .carousel-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.8rem;
+  .hero-banner img {
+    transform: translateY(50px) scale(1.3); /* Less aggressive transform on mobile */
   }
 
-  .carousel-btn.prev { 
-    left: 10px; 
+  .hero-overlay {
+    position: absolute; /* Keep absolute positioning */
+    background: rgba(0,0,0,0.5); /* Darker overlay for better text contrast */
+    z-index: 10; /* Ensure it's above the image */
+  }
+
+  .hero-overlay h1 {
+    font-size: clamp(2rem, 12vw, 3rem); /* More responsive font sizing */
+    line-height: 1.1;
+    padding: 0 6%;
+    text-align: center;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.9); /* Stronger shadow for mobile */
+  }
+
+  /* Stack mission and skills content vertically */
+  .mission-content,
+  .skills-content {
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 6vw, 50px);
   }
   
-  .carousel-btn.next { 
-    right: 10px; 
-  }
-
-  /* Teams Section Mobile */
-  .teams-content {
-    flex-direction: column;
-    gap: 30px;
-    align-items: center; /* Center the content */
-  }
-
-  .teams-text {
-    width: 100%;
-    max-width: 400px; /* Limit width for better centering */
-  }
-
+  /* Stack team buttons vertically on mobile */
   .team-btn-container {
     flex-direction: column;
-    gap: 20px;
-    align-items: center; /* Ensure buttons are centered */
-    width: 100%;
+    gap: clamp(25px, 6vw, 35px);
   }
+  .carousel-card.center {
+  transform: scale(0.65);
+  opacity: 1;
+  z-index: 3;
+}
 
-  .team-btn-vex,
-  .team-btn-adc,
-  .team-btn-media {
-    display: flex;
-    justify-content: center; /* Center each button */
-    width: 100%;
-  }
+.carousel-card.left,
+.carousel-card.right {
+  transform: scale(0.65);
+  opacity: 0.5;
+  z-index: 2;
+}
 
-  .team-btn-vex img,
-  .team-btn-adc img,
-  .team-btn-media img {
-    width: 220px;
-    max-width: 80vw;
-    display: block;
-    margin: 0 auto; /* Extra centering */
-  }
+.carousel-btn.next{
+  transform: scale(0.55) translateX(75px);
+}
+.carousel-btn.prev {
+  transform: scale(0.55) translateX(-75px);
+}
 
-  /* Skills Section Mobile */
-  .skills-image {
-    height: 300px;
-  }
+}
 
-  .skills-list li {
-    font-size: 1rem;
-    padding: 15px 0;
-    padding-left: 30px;
-  }
-
-  .skills-list li::before {
-    top: 15px;
-  }
-
-  /* Footer Mobile */
-  footer {
-    padding: 60px 20px;
-  }
-
-  .footer-content h3 {
-    font-size: 2rem;
-  }
-
-  .footer-content p {
-    font-size: 1.1rem;
-    padding: 0 10px;
-  }
-
-  .contact-button {
-    padding: 15px 30px;
-    font-size: 1rem;
-    width: 80%;
-    max-width: 280px;
+@media (max-height: 800px){
+  .logo-btn {
+    max-width: 150px !important;
   }
 }
 
-@media (max-width: 480px) {
-  /* Extra small screens */
-  header {
-    padding: 8px 15px;
-    height: 60px;
-  }
 
-  .logo-btn img {
-    width: 50%;
-    max-width: 120px;
-  }
 
-  .nav-links {
-    gap: 8px;
-    font-size: 0.7rem;
-  }
-  
-  .hero-title {
-    font-size: clamp(1.8rem, 10vw, 2.8rem);
-  }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .section-title {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
-  }
-
-  .carousel-container {
-    padding: 0 10px;
-    height: 250px; /* Even smaller */
-  }
-
-  .carousel-card {
-    width: 95%;
-    max-width: 280px; /* Smaller */
-    height: 190px; /* Smaller */
-    margin: -95px 0 0 -47.5%;
-  }
-
-  .card-content {
-    padding: 12px;
-  }
-
-  .officer-name {
-    font-size: 1.1rem;
-  }
-
-  .officer-role {
-    font-size: 0.9rem;
-  }
-
-  .officer-bio {
-    font-size: 0.7rem;
-  }
-
-  .team-btn-vex img,
-  .team-btn-adc img,
-  .team-btn-media img {
-    width: 180px;
-    max-width: 90vw;
-  }
-}

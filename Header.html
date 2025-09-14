@@ -1,0 +1,133 @@
+<!-- ================= HEADER ================= -->
+<header>
+  <button class="logo-btn">
+    <img src="logo.png" alt="Logo">
+  </button>
+
+  <nav>
+    <button class="mobile-menu-toggle">☰</button>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li>
+        <a href="#teams">Teams ▼</a>
+        <ul class="teams-dropdown">
+          <li><a href="#teamA">Team A</a></li>
+          <li><a href="#teamB">Team B</a></li>
+          <li><a href="#teamC">Team C</a></li>
+        </ul>
+      </li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HEADER CSS ================= -->
+<style>
+  /* ---------------- Base ---------------- */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body, html { font-family: 'Staatliches', sans-serif; scroll-behavior: smooth; line-height: 1.6; color: #fff; }
+
+  /* ---------------- Header ---------------- */
+  header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1em 2vw;
+    background: rgba(10,10,10,0.35); backdrop-filter: blur(25px);
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    font-weight: 700;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.4s ease;
+    height: clamp(60px, 10vh, 100px);
+  }
+  header.scrolled { background: rgba(10,10,10,0.5); backdrop-filter: blur(30px); border-bottom: 1px solid rgba(255,255,255,0.15); }
+
+  /* ---------------- Logo ---------------- */
+  .logo-btn { background: transparent; border: none; cursor: pointer; display: inline-flex; align-items: center; }
+  .logo-btn img { display: block; width: 55%; height: auto; object-fit: contain; max-width: 200px; }
+
+  /* ---------------- Desktop Nav ---------------- */
+  .nav-links { display: flex; gap: 45px; list-style: none; font-size: 1rem; font-weight: 500; }
+  .nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 0; position: relative; transition: all 0.3s ease; }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px; bottom: 0; left: 0;
+    background: linear-gradient(90deg, #0197F6, #0197F6);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ---------------- Dropdown ---------------- */
+  .nav-links li { position: relative; }
+  .teams-dropdown {
+    position: absolute; top: 100%; left: 0; min-width: 120px; margin-top: 15px;
+    background: linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.6) 100%);
+    backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    list-style: none; padding: 10px 0;
+    opacity: 0; transform: translateY(-100px); pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease; z-index: -2;
+  }
+  .teams-dropdown li { padding: 0; }
+  .teams-dropdown a { display: block; padding: 10px 20px; font-size: 0.95rem; color: rgba(255,255,255,0.9); text-decoration: none; text-align: center; }
+  .teams-dropdown a:hover { background: rgba(0,212,255,0.15); color: #fff; }
+  .nav-links li:hover > .teams-dropdown { opacity: 1; transform: translateY(-10px); pointer-events: auto; }
+
+  /* ---------------- Mobile Nav ---------------- */
+  .mobile-menu-toggle { display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 8px; }
+
+  @media (max-width: 768px){
+    .mobile-menu-toggle { display: block; position: fixed; top: 0; right: 1vh; }
+
+    .nav-links {
+      position: fixed; top: 60px; left: 0; width: 100%; height: calc(100vh - 60px);
+      background: rgba(10,10,10,0.95); backdrop-filter: blur(30px);
+      flex-direction: column; align-items: center; justify-content: flex-start;
+      transform: translateX(-100%); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 999;
+      padding-top: 40px; gap: 0;
+    }
+    .nav-links.mobile-open { transform: translateX(0); opacity: 1; }
+
+    .nav-links li { width: 100%; text-align: center; margin-bottom: 20px; }
+    .nav-links a { font-size: 1.2rem; padding: 15px 0; display: block; width: 100%; }
+
+    .teams-dropdown {
+      position: static; max-height: 0; overflow: hidden; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; width: 100%; gap: 10px;
+      margin: 0; padding: 0; border-radius: 0; background: #00000047; transform: translateX(2px);
+    }
+    .nav-links li.dropdown-open > .teams-dropdown { max-height: 400px; transform: translateX(2px); }
+
+    .teams-dropdown a { width: 100%; text-align: center; font-size: 1.2rem; padding: 12px 0; color: #fff; }
+    .teams-dropdown a:hover { background: rgba(255,255,255,0.05); color: #00d4ff; }
+  }
+</style>
+
+<!-- ================= HEADER JS ================= -->
+<script>
+  const toggleBtn = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-open');
+  });
+
+  const dropdownParents = document.querySelectorAll('.nav-links li');
+  dropdownParents.forEach(parent => {
+    const dropdown = parent.querySelector('.teams-dropdown');
+    if(dropdown){
+      parent.addEventListener('click', e => {
+        if(window.innerWidth <= 768){
+          e.stopPropagation();
+          parent.classList.toggle('dropdown-open');
+        }
+      });
+    }
+  });
+</script>

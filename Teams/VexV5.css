@@ -51,14 +51,6 @@ header {
   height: clamp(60px, 10vh, 100px);
 }
 
-@media (max-width: 768px) {
-  header {
-    padding: 0.75em 6vw;
-    font-size: 1.1rem;
-    height: 60px;
-  }
-}
-
 header.scrolled {
     background: rgba(10, 10, 10, 0.5);
     backdrop-filter: blur(30px);
@@ -87,6 +79,17 @@ header.scrolled {
   width: 55%;
   height: auto;
   object-fit: contain;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
 }
 
 .nav-links {
@@ -129,8 +132,6 @@ header.scrolled {
 .nav-links li {
   position: relative;
 }
-
-
 
 /* Dropdown menu styling */
 .teams-dropdown {
@@ -187,11 +188,6 @@ header.scrolled {
   pointer-events: auto;
 }
 
-main-container {
-  width: 100%;
-  overflow-x: hidden;
-}
-
 /* HERO */
 .hero-banner {
   position: relative;
@@ -219,7 +215,6 @@ main-container {
   object-fit: cover;
   transform: translateY(-100px);
 }
-
 
 .hero-overlay {
   position: absolute;
@@ -379,11 +374,12 @@ main-container {
 
 /* Social column: fixed-ish width so it sits nicely on the right */
 .team-socials {
-  flex: 0 0 120px;               /* reserves horizontal space for the icon */
+  flex: 0 0 140px;               /* increased reserved space for better right positioning */
   display: flex;
   align-items: center;           /* vertical center inside the card */
-  justify-content: center;       /* center the icon inside the reserved area */
+  justify-content: flex-end;     /* push icon to the right edge */
   gap: 12px;
+  padding-right: 20px;           /* add some padding from the very edge */
 }
 
 /* Icon styling — bigger and crisp, with subtle hover */
@@ -419,7 +415,6 @@ main-container {
     width: 48px;
   }
 }
-
 
 /* SCROLLING */
 
@@ -481,65 +476,175 @@ main-container {
   bottom: 80px; /* stacked above the down arrow */
   display: none; /* hidden until scroll */
 }
-/* ================== MEDIA QUERIES ================== */
 
-/* Tablet & small laptops */
-@media (max-width: 1024px) {
-  .nav-links {
-    gap: 25px;
-    font-size: 0.95rem;
-  }
-
-  .hero-overlay h1 {
-    font-size: 4rem;
-    padding: 0 5%;
-  }
-
-  .team-card {
-    padding: 20px;
-    gap: 20px;
-  }
-  .team-name {
-    font-size: 1.6rem;
-  }
-}
-
-/* Mobile screens */
+/* ================= MOBILE RESPONSIVE STYLES ================= */
 @media (max-width: 768px) {
+  
+  /* Header adjustments */
   header {
-    padding: 0.75em 5vw;
     font-size: 1rem;
     height: 60px;
+    padding: 0.75em 4vw;
   }
 
   .logo-btn img {
-    width: 65%;
+    width: 55%;
     max-width: 140px;
+    margin-left: -1vh;
+  }
+
+  /* Show mobile menu toggle, hide desktop nav */
+  .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 1vh;
   }
 
   .nav-links {
-    gap: 18px;
-    font-size: 0.9rem;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    padding-top: 40px;
+    
+    /* Hidden by default */
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-links.mobile-open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .nav-links a {
+    text-decoration: none; /* remove underline */
+    font-size: 1.2rem;
+    padding: 15px 0;
+    display: block;
+    width: 100%;
+    color: #fff;
+  }
+
+  /* Mobile dropdown - pure black, centered, full width links */
+  .teams-dropdown {
+    position: static;            /* stays in flow of menu */
+    max-height: 0;               /* collapsed by default */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin: 0;                   /* no extra spacing */
+    padding: 0;
+    background: #00000047;         /* pure black */
+    border-radius: 0;            /* no rounding for full-width look */
+    display: flex;
+    flex-direction: column;      /* stack links vertically */
+    align-items: center;         /* center links horizontally */
+    justify-content: center;
+    width: 100%;                 /* full width of nav */
+    gap: 10px;
+    transform: translateX(2px);                     /* space between links */
+  }
+
+  /* Expanded state */
+  .nav-links li.dropdown-open > .teams-dropdown {
+    max-height: 400px;
+    transform: translateX(2px);           /* adjust for number of links */
+  }
+
+  /* Dropdown links */
+  .teams-dropdown a {
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;                 /* full clickable width */
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+    text-decoration: none !important;
+  }
+
+  .teams-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.05); /* subtle hover highlight */
+    color: #00d4ff;
+  }
+
+  .nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #ffffff, #ffffff);
+  transition: width 0.3s ease;
+}
+
+  /* Fix Instagram logo path */
+  .team-socials img {
+    width: 75px;
+    margin-right: 0;
+  }
+
+  /* Hero Banner - Fix the overlay issues */
+  .hero-banner {
+    min-height: 40vh;
+    max-height: 60vh;
+  }
+
+  .hero-banner img {
+    transform: translateY(50px) scale(1.3); /* Less aggressive transform on mobile */
+  }
+
+  .hero-overlay {
+    position: absolute; /* Keep absolute positioning */
+    background: rgba(0,0,0,0.5); /* Darker overlay for better text contrast */
+    z-index: 10; /* Ensure it's above the image */
   }
 
   .hero-overlay h1 {
-    font-size: 3rem;
-    line-height: 1.2;
+    font-size: clamp(2rem, 12vw, 3rem); /* More responsive font sizing */
+    line-height: 1.1;
     padding: 0 6%;
+    text-align: center;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.9); /* Stronger shadow for mobile */
   }
 
+  /* Sections */
   .teams-section {
     padding: 40px 6%;
   }
+
   .section-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
   .section-subtitle {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
+  .teams-description {
+    font-size: 1rem;
+  }
+
+  /* Team Cards */
   .team-card {
-    flex-direction: column;   /* stack logo on top */
+    flex-direction: column;
     align-items: flex-start;
     text-align: left;
     gap: 16px;
@@ -560,23 +665,30 @@ main-container {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    gap: 12px;
   }
 
   .team-text {
     width: 100%;
   }
 
+  /* Social icons */
   .team-socials {
     width: 100%;
-    justify-content: flex-start;
-    margin-top: 8px;
+    justify-content: center; /* center icons under text */
+    margin-top: 10px;
   }
 
   .team-socials img {
-    width: 42px;
+    width: 75px; /* increase Instagram icon size */
     margin-right: 0;
   }
 
+  .team-name {
+    font-size: 1.5rem;
+  }
+
+  /* Sheet container */
   .sheet-container {
     margin: 20px auto;
     border-radius: 12px;
@@ -586,41 +698,18 @@ main-container {
     min-height: 450px;
     border-radius: 12px;
   }
-}
 
-/* Extra-small phones */
-@media (max-width: 480px) {
-  header {
-    font-size: 0.9rem;
-  }
-
-  .hero-overlay h1 {
-    font-size: 2.2rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-  .section-subtitle {
-    font-size: 1.3rem;
-  }
-
-  .team-name {
-    font-size: 1.5rem;
-  }
-
-  .teams-description {
-    font-size: 1rem;
-  }
-
-  .team-socials img {
-    width: 36px;
-  }
-
+  /* Scroll arrows */
   .scroll-arrow {
     width: 40px;
     height: 40px;
     font-size: 20px;
     right: 15px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 800px){
+  .logo-btn {
+    max-width: 150px !important;
   }
 }
