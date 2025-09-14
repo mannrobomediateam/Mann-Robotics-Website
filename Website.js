@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
   sections.forEach(section => sectionObserver.observe(section));
 
-
   // --- HEADER SCROLL EFFECT ---
   const header = document.getElementById('main-header');
   window.addEventListener('scroll', () => {
@@ -83,22 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
     counterObserver.observe(counter);
   });
 
-  // --- MOBILE MENU TOGGLE & RESET DROPDOWNS ---
+  // --- MOBILE MENU TOGGLE & DROPDOWNS ---
   const toggleBtn = document.querySelector('.mobile-menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
   if (toggleBtn && navLinks) {
+    // Start closed with hamburger icon
+    navLinks.classList.remove('mobile-open');
+    toggleBtn.innerHTML = '☰';
+
     toggleBtn.addEventListener('click', () => {
       navLinks.classList.toggle('mobile-open');
-
-      // Reset all dropdowns when menu is opened
-      if (navLinks.classList.contains('mobile-open')) {
-        document.querySelectorAll('.nav-links li.dropdown-open').forEach(li => {
-          li.classList.remove('dropdown-open');
-        });
-      }
       toggleBtn.innerHTML = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+
+      // Reset dropdowns when menu opens
+      if (navLinks.classList.contains('mobile-open')) {
+        document.querySelectorAll('.nav-links li.dropdown-open').forEach(li => li.classList.remove('dropdown-open'));
+      }
     });
   }
 
@@ -111,20 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- FORCE MOBILE MENU IN PORTRAIT MODE ---
-  const checkPortrait = () => {
-  if (window.matchMedia("(orientation: portrait)").matches) {
-    // Ensure menu is closed
-    navLinks.classList.remove('mobile-open');
-    // Show hamburger icon
-    toggleBtn.innerHTML = '☰';
-  } else {
-    // Menu closed on landscape as well
-    navLinks.classList.remove('mobile-open');
-    toggleBtn.innerHTML = '☰';
-  }
-};
+  // --- OPTIONAL: adjust menu on resize ---
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      // Ensure mobile menu is closed on desktop
+      navLinks.classList.remove('mobile-open');
+      toggleBtn.innerHTML = '☰';
+    }
+  });
 
-// Run on load
-checkPortrait();
 });
