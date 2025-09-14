@@ -117,7 +117,7 @@ header.scrolled {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  background: linear-gradient(90deg, #0197F6, #0197F6);
   transition: width 0.3s ease;
 }
 
@@ -235,6 +235,7 @@ main-container {
   font-size: 7rem;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
 }
 
 /* Section */
@@ -479,4 +480,147 @@ main-container {
 .scroll-arrow.up {
   bottom: 80px; /* stacked above the down arrow */
   display: none; /* hidden until scroll */
+}
+/* ================== MEDIA QUERIES ================== */
+
+/* Tablet & small laptops */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 25px;
+    font-size: 0.95rem;
+  }
+
+  .hero-overlay h1 {
+    font-size: 4rem;
+    padding: 0 5%;
+  }
+
+  .team-card {
+    padding: 20px;
+    gap: 20px;
+  }
+  .team-name {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75em 5vw;
+    font-size: 1rem;
+    height: 60px;
+  }
+
+  .logo-btn img {
+    width: 65%;
+    max-width: 140px;
+  }
+
+  .nav-links {
+    gap: 18px;
+    font-size: 0.9rem;
+  }
+
+  .hero-overlay h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    padding: 0 6%;
+  }
+
+  .teams-section {
+    padding: 40px 6%;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .section-subtitle {
+    font-size: 1.6rem;
+  }
+
+  .team-card {
+    flex-direction: column;   /* stack logo on top */
+    align-items: flex-start;
+    text-align: left;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .team-left {
+    flex: 0 0 auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .team-logo {
+    max-width: 90px;
+  }
+
+  .team-right {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .team-text {
+    width: 100%;
+  }
+
+  .team-socials {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+
+  .team-socials img {
+    width: 42px;
+    margin-right: 0;
+  }
+
+  .sheet-container {
+    margin: 20px auto;
+    border-radius: 12px;
+  }
+
+  .sheet-container iframe {
+    min-height: 450px;
+    border-radius: 12px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 480px) {
+  header {
+    font-size: 0.9rem;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .section-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .team-name {
+    font-size: 1.5rem;
+  }
+
+  .teams-description {
+    font-size: 1rem;
+  }
+
+  .team-socials img {
+    width: 36px;
+  }
+
+  .scroll-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    right: 15px;
+  }
 }

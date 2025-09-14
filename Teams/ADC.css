@@ -118,7 +118,7 @@ header.scrolled {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  background: linear-gradient(90deg, #0197F6, #0197F6);
   transition: width 0.3s ease;
 }
 
@@ -236,6 +236,7 @@ main-container {
   font-size: 7rem;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
 }
 
 /* Section */
@@ -265,6 +266,7 @@ main-container {
   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 40px;
+
 }
 
 
@@ -317,6 +319,7 @@ main-container {
   font-size: 1.1rem;
   margin: 6px 0;
   line-height: 1.5;
+  font-family: Roboto;
 }
 
 /* SCROLLING */
@@ -383,4 +386,115 @@ main-container {
 .scroll-arrow.up {
   bottom: 80px; /* stacked above the down arrow */
   display: none; /* hidden until scroll */
+}
+/* ================= RESPONSIVE ================= */
+
+/* Tablet (<= 1024px) */
+@media (max-width: 1024px) {
+  .hero-overlay h1 {
+    font-size: 4rem; /* scale down hero title */
+  }
+
+  .nav-links {
+    gap: 24px;
+    font-size: 0.95rem;
+  }
+
+  .sheet-container iframe {
+    min-height: 450px;
+  }
+
+  .team-card {
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+/* Phone (<= 600px) */
+@media (max-width: 600px) {
+  body, html {
+    letter-spacing: 1px; /* tighter spacing for readability */
+  }
+
+  header {
+    padding: 0.6em 5vw;
+    height: 55px;
+    font-size: 1rem;
+  }
+
+  .logo-btn img {
+    width: 70%; /* shrink logo */
+  }
+
+  /* Hide nav links on mobile (toggle with hamburger) */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10,10,10,0.95);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    gap: 12px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Hamburger button */
+  .hamburger {
+    display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.4rem;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+
+  .hero-banner {
+    min-height: 40vh;
+    max-height: 55vh;
+  }
+
+  .hero-banner img {
+    transform: translateY(-40px);
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+
+  /* Team cards stack vertically */
+  .team-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .team-left {
+    flex: none;
+    margin-bottom: 12px;
+  }
+
+  .sheet-container {
+    margin: 20px;
+    border-radius: 12px;
+  }
+
+  .sheet-container iframe {
+    min-height: 280px;
+  }
 }

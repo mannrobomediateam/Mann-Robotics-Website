@@ -118,7 +118,7 @@ header.scrolled {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  background: linear-gradient(90deg, #0197F6, #0197F6);
   transition: width 0.3s ease;
 }
 
@@ -198,7 +198,7 @@ main-container {
   position: relative;
   width: 100%;
   min-height: 50vh;  /* takes half the viewport height */
-  max-height: 60vh;  /* but not too tall */
+  max-height: 70vh;  /* but not too tall */
   overflow: hidden;
   margin-bottom: 90px;
 }
@@ -234,9 +234,10 @@ main-container {
 
 .hero-overlay h1 {
   font-family: 'Staatliches', sans-serif;
-  font-size: 3rem;
+  font-size: 7rem;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
 }
 
 .sponsors-grid {
@@ -244,6 +245,7 @@ main-container {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .sponsor {
@@ -269,3 +271,65 @@ main-container {
   border-radius: 10px;
 }
 
+.inquire-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.inquire-section h3 {
+  font-family: "Staatliches", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.inquire-button {
+  display: inline-block;
+  padding: 18px 36px;
+  background: linear-gradient(135deg, #0197F6, #0099cc);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+  margin-bottom: 100px;
+}
+
+/* ================= MOBILE (phones) ================= */
+@media (max-width: 600px) {
+  header {
+    padding: 0.5em 4vw;
+    font-size: 0.9rem;
+    height: 55px;
+  }
+
+  .nav-links {
+    gap: 20px;
+    font-size: 0.85rem;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    padding: 0 10px;
+  }
+
+  .sponsors-grid {
+    gap: 20px;
+  }
+
+  .sponsor img {
+    max-width: 180px;
+    padding: 8px;
+  }
+
+  .inquire-button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}

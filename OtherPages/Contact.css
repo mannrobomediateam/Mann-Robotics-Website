@@ -117,7 +117,7 @@ header.scrolled {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  background: linear-gradient(90deg, #0197F6, #0197F6);
   transition: width 0.3s ease;
 }
 
@@ -197,7 +197,7 @@ main-container {
   position: relative;
   width: 100%;
   min-height: 50vh;  /* takes half the viewport height */
-  max-height: 60vh;  /* but not too tall */
+  max-height: 70vh;  /* but not too tall */
   overflow: hidden;
 }
 
@@ -235,6 +235,7 @@ main-container {
   font-size: 7rem;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
 }
 
 
@@ -268,7 +269,7 @@ main-container {
   font-family: 'Staatliches', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #00d4ff; /* site accent color */
+  color: #0197F6; /* site accent color */
 }
 
 .contact-info p {
@@ -294,7 +295,7 @@ main-container {
 
 .email-list a {
   text-decoration: none;
-  color: #00d4ff;
+  color: #0197F6;
   transition: color 0.3s;
 }
 
@@ -343,7 +344,7 @@ main-container {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border: 1px solid #00d4ff;
+  border: 1px solid #0197F6;
   background: rgba(10,10,10,0.7);
   outline: none;
 }
@@ -352,7 +353,7 @@ main-container {
   padding: 15px;
   border: none;
   border-radius: 12px;
-  background: #00d4ff;
+  background: #0197F6;
   color: #0a0a0a;
   font-size: 1rem;
   cursor: pointer;
@@ -368,5 +369,68 @@ main-container {
 @media (max-width: 900px) {
   .contact-container {
     flex-direction: column;
+  }
+}
+/* ================= MOBILE (phones ≤600px) ================= */
+@media (max-width: 600px) {
+  /* Header */
+  header {
+    padding: 0.6em 5vw;
+    font-size: 0.9rem;
+    height: 55px;
+  }
+
+  .nav-links {
+    gap: 20px;
+    font-size: 0.85rem;
+  }
+
+  /* Hero */
+  .hero-overlay h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+
+  .hero-banner img {
+    transform: scale(1.1) translateY(20px) translateX(0); /* calmer */
+  }
+
+  /* Contact Section */
+  .contact-section {
+    padding: 50px 5%;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 25px;
+    border-radius: 15px;
+  }
+
+  .contact-info h2,
+  .contact-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-info p {
+    font-size: 0.95rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  .contact-form button {
+    font-size: 0.95rem;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  /* Social icons */
+  .social-icons a img {
+    width: 50px;
+    height: 50px;
   }
 }

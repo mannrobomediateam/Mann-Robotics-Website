@@ -194,7 +194,6 @@ header.scrolled {
   height: 100vh;
   position: relative;
   overflow: hidden;
-    transform: translateY(-30px);
 }
 
 .hero-section::after {
@@ -217,6 +216,7 @@ header.scrolled {
   top: 0;
   left: 0;
   filter: brightness(0.5) contrast(1.1);
+  transform: scale(1.05) translateY(50px);  
 }
 
 .hero-overlay {
@@ -300,13 +300,13 @@ header.scrolled {
   transition: all 0.4s ease;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
-  background: linear-gradient(135deg, #00e6ff, #6ABFFF);
+  background: linear-gradient(135deg, #90DDF0, #6ABFFF);
 }
 
 .cta-button.secondary {
@@ -469,6 +469,7 @@ section.visible, .fade-section.visible {
   box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
+
 /* ================= OFFICERS SECTION ================= */
 .carousel-container {
   position: relative;
@@ -562,6 +563,14 @@ section.visible, .fade-section.visible {
   object-fit: cover;
   transform: scale(1.2) translateY(-20px) rotateY(-8deg) rotateX(4deg);
 }
+
+.card-image img.Krish {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5) translateY(35px) translateX(17px);
+}
+
 
 
 /* glass gloss effect */
@@ -828,8 +837,8 @@ footer {
 
 .contact-button:hover {
   transform: translateY(-3px);
-  background: linear-gradient(135deg, #00e6ff, #6ABFFF);
-  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.4);
+  background: linear-gradient(135deg, #0099cc, #6ABFFF);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
 }
 
 /* ================= SOCIAL ICONS ================= */

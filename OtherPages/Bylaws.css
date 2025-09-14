@@ -118,7 +118,7 @@ header.scrolled {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  background: linear-gradient(90deg, #0197F6, #0197F6);
   transition: width 0.3s ease;
 }
 
@@ -198,8 +198,9 @@ main-container {
   position: relative;
   width: 100%;
   min-height: 50vh;  /* takes half the viewport height */
-  max-height: 80vh;  /* but not too tall */
+  max-height: 70vh;  /* but not too tall */
   overflow: hidden;
+  margin-bottom: 75px;
 }
 
 .hero-banner::after {
@@ -218,7 +219,7 @@ main-container {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translateY(-100px);
+  transform: scale(1.2) translateY(50px);
 }
 
 
@@ -236,6 +237,7 @@ main-container {
   font-size: 7rem;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
 }
 
 .embed-container {
@@ -252,4 +254,72 @@ main-container {
   min-height: 600px;
   border: none;
   border-radius: 20px;
+}
+
+/* ================= MOBILE + TABLET RESPONSIVENESS ================= */
+
+/* Tablets (portrait + landscape) */
+@media (max-width: 1024px) {
+  .hero-overlay h1 {
+    font-size: 4rem; /* smaller but still bold */
+  }
+
+  .nav-links {
+    gap: 25px; /* less horizontal spacing */
+  }
+
+  .embed-container iframe {
+    min-height: 450px; /* shrink height for tablets */
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  body, html {
+    letter-spacing: 1px; /* tighter tracking for readability */
+  }
+
+  header {
+    padding: 0.6em 5vw;
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    background: rgba(10, 10, 10, 0.9);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+
+  .hero-banner {
+    min-height: 40vh;
+    max-height: 55vh;
+    margin-bottom: 50px;
+  }
+
+  .hero-banner img {
+    transform: scale(1.1) translateY(20px); /* less exaggerated */
+  }
+
+  .embed-container {
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .embed-container iframe {
+    min-height: 280px; /* fit small phones */
+  }
 }

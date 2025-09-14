@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- STAT COUNTERS ---
   const counters = document.querySelectorAll('.stat-number');
-  const speed = 200;
+  const speed = 100;
   counters.forEach(counter => {
     const updateCount = () => {
       const target = +counter.getAttribute('data-target');

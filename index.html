@@ -41,12 +41,12 @@
     <!-- HERO WITH VIDEO -->
     <div class="hero-section">
       <video class="hero-video" autoplay muted loop playsinline id="hero-video">
-        <source src="Assets/video.mp4" type="video/mp4">
+        <source src="Assets/video.mov" type="video/mp4">
         Your browser does not support the video tag.
         <script>
           const video = document.getElementById('hero-video');
           video.addEventListener('loadeddata', () => {
-            video.currentTime = 125;
+            video.currentTime = 0;
             video.play();
           })
         </script>
@@ -106,7 +106,7 @@
         </div>
         <div class="mission-visual">
           <img src = "Assets/Fteam2.PNG" alt = "Team Image"></img>
-        </div>
+        </div>        
       </div>
     </section>
 
@@ -131,7 +131,7 @@
                 <p class="officer-bio">Krish Verma, this year’s Club President, has been involved in VEX Robotics for four years. As a member of Team 3796D – Dinoco, he has qualified for the World Championship twice and was a State Finalist.</p>
               </div>
               <div class="card-image">
-                <img src="Assets/LARD.jpg" alt="Officer Portrait">
+                <img class = "Krish" src="Assets/Krish.jpeg" alt="Officer Portrait">
               </div>
             </div>
           </div>
@@ -142,10 +142,10 @@
               <div class="card-text">
                 <h2 class="officer-name">Joseph Quiros</h2>
                 <h3 class="officer-role">Vice President</h3>
-                <p class="officer-bio">Writes the code that powers our bots. Loves AI and automation.</p>
+                <p class="officer-bio">Joseph is currently a senior at J.L Mann and competes for 3796D - Dinoco. He is entering his third year of robotics and has previously helped 3796D to become the first Mann team to triple crown at an event</p>
               </div>
               <div class="card-image">
-                <img src="Assets/SenoritoSalsito.jpg" alt="Officer Portrait">
+                <img src="" alt="Officer Portrait">
               </div>
             </div>
           </div>
@@ -160,20 +160,6 @@
               </div>
               <div class="card-image">
                 <img src="Assets/Megan.jpg" alt="Officer Portrait">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="carousel-card">
-            <div class="card-content">
-              <div class="card-text">
-                <h2 class="officer-name">Mr. Bennett</h2>
-                <h3 class="officer-role">Coach</h3>
-                <p class="officer-bio">Crafts the visual identity of our projects. Passionate about user experience and aesthetics.</p>
-              </div>
-              <div class="card-image">
-                <img src="Assets/BennettBEARR.jpg" alt="Officer Portrait">
               </div>
             </div>
           </div>
@@ -220,7 +206,6 @@
             <ul class="skills-list">
               <li>Advanced Programming & Algorithm Development</li>
               <li>Mechanical Design & CAD Modeling</li>
-              <li>Electronics & Circuit Engineering</li>
               <li>Project Management & Leadership</li>
               <li>Strategic Thinking & Problem Solving</li>
               <li>Team Collaboration & Communication</li>
