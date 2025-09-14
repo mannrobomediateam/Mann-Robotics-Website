@@ -114,8 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- FORCE MOBILE MENU IN PORTRAIT MODE ---
   const checkPortrait = () => {
   if (window.matchMedia("(orientation: portrait)").matches) {
-    toggleBtn.innerHTML = '✕';
+    // Ensure menu is closed
+    navLinks.classList.remove('mobile-open');
+    // Show hamburger icon
+    toggleBtn.innerHTML = '☰';
   } else {
+    // Menu closed on landscape as well
     navLinks.classList.remove('mobile-open');
     toggleBtn.innerHTML = '☰';
   }
