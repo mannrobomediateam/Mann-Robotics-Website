@@ -112,9 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- FORCE MOBILE MENU IN PORTRAIT MODE ---
-const checkPortrait = () => {
+  const checkPortrait = () => {
   if (window.matchMedia("(orientation: portrait)").matches) {
-    navLinks.classList.add('mobile-open');
     toggleBtn.innerHTML = '✕';
   } else {
     navLinks.classList.remove('mobile-open');
