@@ -22,6 +22,10 @@ body::-webkit-scrollbar {
     background: transparent;
 }
 
+#mission {
+  scroll-margin-top: 125px;
+}
+
 /* ================= MAIN CONTAINER ================= */
 .main-container {
   width: 100%;
