@@ -448,6 +448,11 @@ header.scrolled {
   letter-spacing: 0.3px;
 }
 
+.event-link {
+  color: #0197F6;
+  text-decoration: none;
+}
+
 /* Apply button */
 .apply-button {
   padding: 15px;
