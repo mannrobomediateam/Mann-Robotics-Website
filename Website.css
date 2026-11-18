@@ -667,7 +667,7 @@ section.visible, .fade-section.visible {
 
 .team-btn-vex img {
   display: block;
-  width: clamp(250px, 40vw, 350px);
+  width: clamp(120px, 30vw, 250px);
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
